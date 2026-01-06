@@ -1,0 +1,9 @@
+id: "com.nexo.ops"
+name: "Cloud Commander"
+version: "1.0.0"
+author: "Nexo Team"
+description: "A DevOps Engineer agent for managing Docker containers and checking network health."
+icon: "icon.png"
+entrypoint: "tools/main.py"
+instructions:
+  default: "instructions/persona.md"
