@@ -21,9 +21,9 @@ async def browser_navigate(url: str) -> str:
     return await browser.navigate(url)
 
 @mcp.tool()
-async def browser_screenshot(path: str) -> str:
-    """Take a screenshot of the current page"""
-    return await browser.screenshot(path)
+async def browser_screenshot(url: str, path: str) -> str:
+    """Take a screenshot of a URL"""
+    return await browser.screenshot(url, path)
 
 # Register Visual Tools
 @mcp.tool()

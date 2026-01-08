@@ -24,11 +24,14 @@ class BrowserTools:
                 "handler": self.screenshot,
                 "schema": {
                     "name": "browser_screenshot",
-                    "description": "Take a screenshot of the current page",
+                    "description": "Take a screenshot of a URL",
                     "inputSchema": {
                         "type": "object",
-                        "properties": {"path": {"type": "string"}},
-                        "required": ["path"]
+                        "properties": {
+                            "url": {"type": "string"},
+                            "path": {"type": "string"}
+                        },
+                        "required": ["url", "path"]
                     }
                 }
             }
@@ -40,17 +43,27 @@ class BrowserTools:
             async with async_playwright() as p:
                 browser = await p.chromium.launch(headless=True)
                 page = await browser.new_page()
-                await page.goto(url)
+                await page.goto(url, wait_until="domcontentloaded")
                 title = await page.title()
+                content = await page.evaluate("document.body.innerText")
                 await browser.close()
-                return f"Successfully navigated to {url}. Page title: {title}"
+                return f"Successfully navigated to {url}.\nPage title: {title}\nPage content:\n{content}"
         except ImportError:
             return "Error: Playwright not installed. Please run `pip install playwright && playwright install`."
         except Exception as e:
             return f"Error navigating: {e}"
 
-    async def screenshot(self, path: str) -> str:
-        # Note: In a real stateful agent, we would keep the browser open between calls.
-        # For this MVP stateless implementation, we can't easily screenshot a page we just navigated away from.
-        # This acts as a placeholder or needs a stateful daemon.
-        return "Error: Browser session is stateless in this MVP. Cannot screenshot without active page."
+    async def screenshot(self, url: str, path: str) -> str:
+        try:
+            from playwright.async_api import async_playwright
+            async with async_playwright() as p:
+                browser = await p.chromium.launch(headless=True)
+                page = await browser.new_page()
+                await page.goto(url, wait_until="networkidle")
+                await page.screenshot(path=path)
+                await browser.close()
+                return f"Successfully saved screenshot of {url} to {path}"
+        except ImportError:
+            return "Error: Playwright not installed. Please run `pip install playwright && playwright install`."
+        except Exception as e:
+            return f"Error taking screenshot: {e}"
