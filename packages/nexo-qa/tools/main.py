@@ -1,4 +1,4 @@
-from mcp.server.fastmcp import FastMCP
+from fastmcp import FastMCP
 import sys
 import os
 
@@ -8,7 +8,7 @@ from browser_control import BrowserTools
 from visual_diff import VisualTools
 
 # Initialize FastMCP Server
-mcp = FastMCP("QA Auto-Pilot", dependencies=["mcp", "playwright"])
+mcp = FastMCP("QA Auto-Pilot")
 
 # Initialize tool classes
 browser = BrowserTools()

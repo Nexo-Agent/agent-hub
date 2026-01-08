@@ -1,4 +1,4 @@
-from mcp.server.fastmcp import FastMCP
+from fastmcp import FastMCP
 import sys
 import os
 
@@ -10,7 +10,7 @@ from terminal import TerminalTools
 from planner import PlannerTools
 
 # Initialize FastMCP Server
-mcp = FastMCP("The Builder", dependencies=["mcp"])
+mcp = FastMCP("The Builder")
 
 # Initialize tool classes
 fs_tools = FileSystemTools()

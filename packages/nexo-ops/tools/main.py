@@ -1,4 +1,4 @@
-from mcp.server.fastmcp import FastMCP
+from fastmcp import FastMCP
 import sys
 import os
 
@@ -8,7 +8,7 @@ from docker_client import DockerTools
 from network_utils import NetworkTools
 
 # Initialize FastMCP Server
-mcp = FastMCP("Cloud Commander", dependencies=["mcp"])
+mcp = FastMCP("Cloud Commander")
 
 # Initialize tool classes
 docker = DockerTools()
