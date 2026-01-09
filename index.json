@@ -52,9 +52,9 @@
         ],
         "mcp_servers": [
             {
-                "id": "arxiv",
+                "id": "arxiv-mcp",
                 "name": "Arxiv",
-                "description": "",
+                "description": "The ArXiv MCP Server provides a bridge between AI assistants and arXiv's research repository through the Model Context Protocol (MCP). It allows AI models to search for papers and access their content in a programmatic way.",
                 "icon": "",
                 "type": "stdio",
                 "config": {
@@ -63,197 +63,55 @@
                         "tool run arxiv-mcp-server --storage-path {path}"
                     ],
                     "env": {}
-                },
-                "variables": [{"name": "--storage-path", "label": "Storage path", "required": true}]
+                }
             },
             {
-                "id": "mcp-sequential-thinking",
-                "name": "Sequential Thinking",
-                "description": "Cung cấp khả năng tư duy tuần tự cho AI, giúp xử lý các bước logic phức tạp.",
+                "id": "playwright-mcp",
+                "name": "Playwright",
+                "description": "A Model Context Protocol (MCP) server that provides browser automation capabilities using Playwright. This server enables LLMs to interact with web pages through structured accessibility snapshots, bypassing the need for screenshots or visually-tuned models.",
                 "icon": "",
                 "type": "stdio",
                 "config": {
                     "command": "npx",
                     "args": [
-                        "@smithery-ai/server-sequential-thinking"
+                        "@playwright/mcp@latest"
                     ],
                     "env": {}
-                },
-                "variables": []
+                }
             },
             {
-                "id": "mcp-github",
-                "name": "GitHub MCP Server",
-                "description": "Cho phép AI truy cập GitHub: quản lý repository, tìm kiếm file, pull requests, và thao tác API.",
+                "id": "chrome-dev-tools-mcp",
+                "name": "Chrome DevTools",
+                "description": "chrome-devtools-mcp lets your coding agent (such as Gemini, Claude, Cursor or Copilot) control and inspect a live Chrome browser. It acts as a Model-Context-Protocol (MCP) server, giving your AI coding assistant access to the full power of Chrome DevTools for reliable automation, in-depth debugging, and performance analysis.",
                 "icon": "",
                 "type": "stdio",
                 "config": {
                     "command": "npx",
                     "args": [
-                        "@smithery-ai/github"
+                        "-y",
+                        "chrome-devtools-mcp@latest"
                     ],
                     "env": {}
-                },
-                "variables": [
-                    {
-                        "name": "github_token",
-                        "label": "GitHub Token",
-                        "required": true
-                    }
-                ]
+                }
             },
             {
-                "id": "mcp-brave-search",
-                "name": "Brave Search MCP Server",
-                "description": "Tích hợp công cụ Brave Search để tìm kiếm web và thu thập dữ liệu trực tuyến.",
+                "id": "filesystem-mcp",
+                "name": "Filesystem",
+                "description": "Node.js server implementing Model Context Protocol (MCP) for filesystem operations.",
                 "icon": "",
                 "type": "stdio",
                 "config": {
                     "command": "npx",
                     "args": [
-                        "@smithery-ai/brave-search"
+                        "-y",
+                        "@modelcontextprotocol/server-filesystem",
+                        "/tmp"
                     ],
                     "env": {}
-                },
-                "variables": []
-            },
-            {
-                "id": "mcp-webresearch",
-                "name": "Web Research Server",
-                "description": "Cung cấp chức năng nghiên cứu web nâng cao, trích xuất nội dung trang và tổng hợp dữ liệu.",
-                "icon": "",
-                "type": "stdio",
-                "config": {
-                    "command": "npx",
-                    "args": [
-                        "mzxrai/mcp-webresearch"
-                    ],
-                    "env": {}
-                },
-                "variables": []
-            },
-            {
-                "id": "mcp-iterm",
-                "name": "iTerm MCP Server",
-                "description": "Cho phép AI thực thi lệnh trong iTerm và tương tác hệ thống terminal.",
-                "icon": "",
-                "type": "stdio",
-                "config": {
-                    "command": "iterm-mcp",
-                    "args": [],
-                    "env": {}
-                },
-                "variables": []
-            },
-            {
-                "id": "mcp-sqlite",
-                "name": "SQLite MCP Server",
-                "description": "Truy cập và thao tác cơ sở dữ liệu SQLite thông qua giao thức MCP.",
-                "icon": "",
-                "type": "stdio",
-                "config": {
-                    "command": "npx",
-                    "args": [
-                        "mcp-server-sqlite-npx"
-                    ],
-                    "env": {}
-                },
-                "variables": [
-                    {
-                        "name": "db_path",
-                        "label": "Database Path",
-                        "required": true
-                    }
-                ]
-            },
-            {
-                "id": "mcp-playwright",
-                "name": "Playwright MCP Server",
-                "description": "Cung cấp khả năng tự động hóa trình duyệt cho AI để tương tác web và scrape nội dung.",
-                "icon": "",
-                "type": "stdio",
-                "config": {
-                    "command": "npx",
-                    "args": [
-                        "@executeautomation/playwright-mcp-server"
-                    ],
-                    "env": {}
-                },
-                "variables": []
-            },
-            {
-                "id": "mcp-obsidian",
-                "name": "Obsidian Reader",
-                "description": "Đọc và tìm kiếm trong vault ghi chú Markdown Obsidian để cung cấp dữ liệu ngữ cảnh cho AI.",
-                "icon": "",
-                "type": "stdio",
-                "config": {
-                    "command": "npx",
-                    "args": [
-                        "mcp-obsidian"
-                    ],
-                    "env": {}
-                },
-                "variables": [
-                    {
-                        "name": "vault_path",
-                        "label": "Obsidian Vault Path",
-                        "required": true
-                    }
-                ]
-            },
-            {
-                "id": "mcp-mysql-server",
-                "name": "MySQL MCP Server",
-                "description": "Cho phép truy cập và thao tác dữ liệu MySQL thông qua MCP.",
-                "icon": "",
-                "type": "stdio",
-                "config": {
-                    "command": "npx",
-                    "args": [
-                        "@f4ww4z/mcp-mysql-server"
-                    ],
-                    "env": {}
-                },
-                "variables": [
-                    {
-                        "name": "mysql_uri",
-                        "label": "MySQL Connection URI",
-                        "required": true
-                    }
-                ]
-            },
-            {
-                "id": "mcp-memory-knowledge-graph",
-                "name": "Knowledge Graph Memory Server",
-                "description": "Lưu trữ và truy vấn memory dạng đồ thị tri thức để tăng khả năng ghi nhớ và truy vấn ngữ cảnh.",
-                "icon": "",
-                "type": "stdio",
-                "config": {
-                    "command": "npx",
-                    "args": [
-                        "@smithery-ai/memory"
-                    ],
-                    "env": {}
-                },
-                "variables": []
+                }
             }
         ],
         "prompts": [
-            {
-                "id": "senior-fullstack-dev",
-                "name": "Senior Fullstack Developer",
-                "description": "Experienced full-stack engineer who writes clean, scalable React, Node.js, and database code with best practices.",
-                "icon": "https://raw.githubusercontent.com/Nexo-Agent/official-hub/main/assets/icons/coding.png",
-                "path": "prompts/coding/senior-fullstack-dev.md"
-            },
-            {
-                "id": "ai-product-manager",
-                "name": "AI Product Manager",
-                "description": "Helps define product vision, user stories, roadmaps, and feature prioritization for AI-powered products.",
-                "icon": "https://raw.githubusercontent.com/Nexo-Agent/official-hub/main/assets/icons/product.png",
-                "path": "prompts/product/ai-product-manager.md"
-            },
             {
                 "id": "startup-idea-generator",
                 "name": "Startup Idea Generator",
@@ -269,13 +127,6 @@
                 "path": "prompts/marketing/marketing-copywriter.md"
             },
             {
-                "id": "ux-ui-designer",
-                "name": "UX/UI Designer",
-                "description": "Design-focused assistant that helps with UX research, UI layouts, design systems, and usability principles.",
-                "icon": "https://raw.githubusercontent.com/Nexo-Agent/official-hub/main/assets/icons/design.png",
-                "path": "prompts/design/ux-ui-designer.md"
-            },
-            {
                 "id": "technical-architect",
                 "name": "Software Architect",
                 "description": "Provides high-level system design, architecture diagrams, scalability, and technology decisions.",
@@ -283,11 +134,11 @@
                 "path": "prompts/engineering/software-architect.md"
             },
             {
-                "id": "data-analyst",
-                "name": "Data Analyst",
-                "description": "Analyzes data, writes SQL queries, builds insights, and explains metrics in a business-friendly way.",
+                "id": "researcher",
+                "name": "Researcher",
+                "description": "Performs in-depth research on a specific topic, including data analysis, literature review, and methodological insights.",
                 "icon": "https://raw.githubusercontent.com/Nexo-Agent/official-hub/main/assets/icons/data.png",
-                "path": "prompts/data/data-analyst.md"
+                "path": "prompts/engineering/researcher.md"
             },
             {
                 "id": "seo-content-writer",
@@ -295,20 +146,6 @@
                 "description": "Creates SEO-optimized blog posts, keyword strategies, and content outlines that rank on search engines.",
                 "icon": "https://raw.githubusercontent.com/Nexo-Agent/official-hub/main/assets/icons/seo.png",
                 "path": "prompts/content/seo-content-writer.md"
-            },
-            {
-                "id": "career-coach",
-                "name": "Career Coach",
-                "description": "Assists with career planning, CV/resume writing, interview preparation, and personal growth.",
-                "icon": "https://raw.githubusercontent.com/Nexo-Agent/official-hub/main/assets/icons/career.png",
-                "path": "prompts/career/career-coach.md"
-            },
-            {
-                "id": "system-prompt-engineer",
-                "name": "Prompt Engineer",
-                "description": "Specialized assistant for crafting, optimizing, and debugging prompts for LLMs and AI agents.",
-                "icon": "https://raw.githubusercontent.com/Nexo-Agent/official-hub/main/assets/icons/prompt.png",
-                "path": "prompts/ai/prompt-engineer.json"
             }
         ]
     }
