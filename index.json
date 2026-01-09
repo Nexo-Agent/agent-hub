@@ -52,6 +52,21 @@
         ],
         "mcp_servers": [
             {
+                "id": "arxiv",
+                "name": "Arxiv",
+                "description": "",
+                "icon": "",
+                "type": "stdio",
+                "config": {
+                    "command": "uv",
+                    "args": [
+                        "tool run arxiv-mcp-server --storage-path /Users/nkthanh/nexo/storages"
+                    ],
+                    "env": {}
+                },
+                "variables": []
+            },
+            {
                 "id": "mcp-sequential-thinking",
                 "name": "Sequential Thinking",
                 "description": "Cung cấp khả năng tư duy tuần tự cho AI, giúp xử lý các bước logic phức tạp.",
