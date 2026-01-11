@@ -11,7 +11,7 @@ An Automation Test Engineer agent capable of running E2E tests using Playwright.
 ## Requirements
 
 - Python 3.10+
-- Playwright (`playwright install`)
+- Playwright & Playwright-Stealth (`pip install playwright playwright-stealth && playwright install`)
 
 ## How to use
 
