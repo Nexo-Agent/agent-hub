@@ -116,7 +116,7 @@
                 "description": "Get the latest documentation and code",
                 "icon": "",
                 "config": {
-                    "type": "streamable-http",
+                    "type": "http-streamable",
                     "url": "https://mcp.context7.com/mcp",
                     "headers": {
                         "CONTEXT7_API_KEY": "<TOKEN>"
@@ -129,7 +129,7 @@
                 "description": "Github MCP",
                 "icon": "",
                 "config": {
-                    "type": "streamable-http",
+                    "type": "http-streamable",
                     "url": "https://api.githubcopilot.com/mcp/",
                     "headers": {
                         "Authorization": "Bearer <TOKEN>",
