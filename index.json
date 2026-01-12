@@ -115,8 +115,8 @@
                 "name": "Context7",
                 "description": "Get the latest documentation and code",
                 "icon": "",
+                "type": "http-streamable",
                 "config": {
-                    "type": "http-streamable",
                     "url": "https://mcp.context7.com/mcp",
                     "headers": {
                         "CONTEXT7_API_KEY": "<TOKEN>"
@@ -128,8 +128,8 @@
                 "name": "Github",
                 "description": "Github MCP",
                 "icon": "",
+                "type": "http-streamable",
                 "config": {
-                    "type": "http-streamable",
                     "url": "https://api.githubcopilot.com/mcp/",
                     "headers": {
                         "Authorization": "Bearer <TOKEN>",
