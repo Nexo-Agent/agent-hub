@@ -173,6 +173,13 @@
                 "description": "Creates SEO-optimized blog posts, keyword strategies, and content outlines that rank on search engines.",
                 "icon": "https://raw.githubusercontent.com/Nexo-Agent/official-hub/main/assets/icons/seo.png",
                 "path": "prompts/content/seo-content-writer.md"
+            },
+            {
+                "id": "chart-generator",
+                "name": "Mermaid Chart Generator",
+                "description": "Mermaid Chart Generator",
+                "icon": "https://raw.githubusercontent.com/Nexo-Agent/official-hub/main/assets/icons/seo.png",
+                "path": "prompts/engineering/chart-generator.md"
             }
         ]
     }
