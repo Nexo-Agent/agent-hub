@@ -136,6 +136,36 @@
                         "Content-Type": "application/json"
                     }
                 }
+            },
+            {
+                "id": "mcp-server-chart",
+                "name": "Server Chart",
+                "description": "A visualization mcp & skills contains 25+ visual charts using @antvis. Using for chart generation and data analysis.",
+                "icon": "",
+                "type": "stdio",
+                "config": {
+                    "command": "npx",
+                    "args": [
+                        "-y",
+                        "@antv/mcp-server-chart"
+                    ]
+                }
+            },
+            {
+                "id": "mcp-open-library",
+                "name": "Open Library",
+                "description": "A Model Context Protocol (MCP) server for the Internet Archive's Open Library API that enables AI assistants to search for book and author information.",
+                "icon": "",
+                "type": "stdio",
+                "config": {
+                    "command": "npx",
+                    "args": [
+                        "-y",
+                        "@smithery/cli@latest",
+                        "run",
+                        "@8enSmith/mcp-open-library"
+                    ]
+                }
             }
         ],
         "prompts": [
